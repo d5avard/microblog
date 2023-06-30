@@ -1,7 +1,7 @@
 # microblog
 
 ## first iteration
-First iteration that contains a docker network with an application. The setup works with docker compose and with dev container approach in vscode.
+First iteration that setup a docker network with an container application. The setup works with docker compose and with dev container approach in vscode.
 
 To launch the setup with dev container approach type shift + command + p Dev , type **Containers: Open Folder in Container** and select the folder that contains the application.
 
