@@ -10,4 +10,4 @@ See references:
 - https://fastapi.tiangolo.com/deployment/docker/
 
 ## second iteration - Initialize post
-Second iteration that setup a new docker network for the services and initialize the new service post.
+Second iteration setups a new docker network for the services and initialize the new service post.
