@@ -1,0 +1,25 @@
+{
+    "name": "post",
+    "dockerComposeFile": ["../../docker-compose.yml"],
+    "service": "post",
+    "shutdownAction": "none",
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"formulahendry.code-runner",
+				"magicstack.MagicPython",
+				"eamodio.gitlens",
+				"PKief.material-icon-theme"
+			]
+		}
+	},
+	// "forwardPorts": [8080],    
+    // Open the sub-folder with the source code
+    "workspaceFolder": "/code"
+  }
