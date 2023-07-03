@@ -8,6 +8,15 @@ services:
     restart: always
     networks:
       - default
+      - autharitus
+  post:
+    build: ./post/.
+    command: /bin/sh -c "uvicorn app.main:app --host "0.0.0.0" --port 80"
+    restart: always
+    networks:
+      - autharitus
 networks:
   default:
-    name: "abdalonim"
+    name: "${COMPOSE_PROJECT_NAME}_abdalonim"
+  autharitus: 
+    name: "${COMPOSE_PROJECT_NAME}_autharitus"
