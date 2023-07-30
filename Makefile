@@ -7,7 +7,7 @@ run-prod: clean
 	docker compose up -d --no-deps --build -f docker-compose.yml
 
 stop-dev:
-	docker compose down -f docker-compose.yml -f docker-compose.devcontainer.yml --rmi 'local'
+	docker compose -f docker-compose.yml -f docker-compose.devcontainer.yml down --rmi 'local'
 
 stop-prod:
 	docker compose down --rmi 'local'

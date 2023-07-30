@@ -3,9 +3,10 @@ services:
   front:
     volumes:
     - .:/workspace:cached
-  # post:
-  #   volumes:
-  #   - .:/workspace:cached
+  
+  post:
+    volumes:
+    - .:/workspace:cached
 
   netshoot:
     image: nicolaka/netshoot
