@@ -3,6 +3,14 @@ services:
   front:
     volumes:
     - .:/workspace:cached
-  post:
-    volumes:
-    - .:/workspace:cached
+  # post:
+  #   volumes:
+  #   - .:/workspace:cached
+
+  netshoot:
+    image: nicolaka/netshoot
+    restart: always
+    command: sleep infinity
+    networks:
+      - default
+      - autharitus

@@ -6,8 +6,11 @@ run-dev: clean
 run-prod: clean
 	docker compose up -d --no-deps --build -f docker-compose.yml
 
-stop:
-	docker compose down
+stop-dev:
+	docker compose down -f docker-compose.yml -f docker-compose.devcontainer.yml --rmi 'local'
+
+stop-prod:
+	docker compose down --rmi 'local'
 
 clean:
 	find . -name __pycache__ -type d -exec rm -dR {} +

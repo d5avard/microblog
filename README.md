@@ -13,4 +13,4 @@ See references:
 Second iteration setups a new docker network for the services and initialize the new service post. 
 
 ## second iteration - Setup dev
-Third iteration setups multiple devcontainers, use python slim package, update versions of FastApi stack and create a first version of Makefile
+Third iteration setups multiple devcontainers, use python slim package, update versions of FastApi stack and create a first version of Makefile.
