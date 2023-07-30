@@ -6,4 +6,4 @@ WORKDIR $DIRPATH
 COPY ./requirements.txt $DIRPATH/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r $DIRPATH/requirements.txt
 COPY ./app $DIRPATH/app
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80", "--reload"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]

@@ -1,20 +1,65 @@
 version: "3"
 services:
-  front:
-    build: ./front
-    ports:
-      - "8080:80"
+  load-balancer:
+    build: load-balancer
     restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - front
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail localhost:80/health-check || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    command: nginx -g 'daemon off;'
     networks:
       - default
       - autharitus
-  post:
-    build: ./post
+  front:
+    build: front
     restart: always
+    ports:
+      - "8080"
+    # depends_on:
+    #   - post
     networks:
       - autharitus
+  # post:
+  #   build: ./post
+  #   ports:
+  #     - "8080"
+  #   restart: always
+  #   networks:
+  #     - autharitus
 networks:
   default:
     name: "${COMPOSE_PROJECT_NAME}_abdalonim"
   autharitus: 
     name: "${COMPOSE_PROJECT_NAME}_autharitus"
+
+# services:
+#   nginx-proxy:
+#     build: nginx
+#     restart: always
+#     ports:
+#       - "80:80"
+#     depends_on:
+#       - flask-app
+#     healthcheck:
+#       test: ["CMD-SHELL", "curl --silent --fail localhost:80/health-check || exit 1"]
+#       interval: 10s
+#       timeout: 10s
+#       retries: 3
+#     command: nginx -g 'daemon off;'
+#   flask-app:
+#     build: flask
+#     restart: always
+#     ports: 
+#       - '8000'
+#     healthcheck:
+#       test: ["CMD-SHELL", "curl --silent --fail localhost:8000/flask-health-check || exit 1"]
+#       interval: 10s
+#       timeout: 10s
+#       retries: 3
+#     command: gunicorn -w 3 -t 60 -b 0.0.0.0:8000 app:app
