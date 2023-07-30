@@ -21,17 +21,17 @@ services:
     restart: always
     ports:
       - "8080"
-    # depends_on:
-    #   - post
+    depends_on:
+      - post
     networks:
       - autharitus
-  # post:
-  #   build: ./post
-  #   ports:
-  #     - "8080"
-  #   restart: always
-  #   networks:
-  #     - autharitus
+  post:
+    build: post
+    restart: always
+    ports:
+      - "8080"
+    networks:
+      - autharitus
 networks:
   default:
     name: "${COMPOSE_PROJECT_NAME}_abdalonim"
