@@ -8,6 +8,10 @@ services:
     volumes:
     - .:/workspace:cached
 
+  entry-store:
+    volumes:
+    - .:/workspace:cached
+
   netshoot:
     image: nicolaka/netshoot
     restart: always
@@ -15,3 +19,4 @@ services:
     networks:
       - default
       - autharitus
+
