@@ -1,0 +1,22 @@
+{
+    "name": "entry-store",
+    "service": "entry-store",
+	"dockerComposeFile": [
+		"../../docker-compose.yml",
+		"../../docker-compose.devcontainer.yml"],
+	"overrideCommand": false,
+    "shutdownAction": "none",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"formulahendry.code-runner",
+				"magicstack.MagicPython",
+				"PKief.material-icon-theme"
+			]
+		}
+	},
+    "workspaceFolder": "/workspace/entry-store"
+  }

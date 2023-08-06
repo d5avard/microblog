@@ -20,3 +20,14 @@ Fouth iteration setups an nginx load balancer and add a new endpoint 'info' in t
 
 ## fifth iteration - add post service
 Add post service.
+
+## sixth iteration - add a first route
+Add a new route, a post message '/' that route trough front->post->entry-store.
+
+A test example:
+```bash
+curl -H "Content-Type: application/json" \
+    --request POST \
+    -d '{"post":"entry","user":"alice", "text":"curiouser and couriouser"}' \
+    http://localhost/
+```

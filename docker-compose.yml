@@ -30,6 +30,15 @@ services:
     restart: always
     ports:
       - "8080"
+    depends_on:
+      - entry-store
+    networks:
+      - autharitus
+  entry-store:
+    build: entry-store
+    restart: always
+    ports:
+      - "8080"
     networks:
       - autharitus
 networks:
