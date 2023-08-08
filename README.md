@@ -31,3 +31,5 @@ curl -H "Content-Type: application/json" \
     -d '{"post":"entry","user":"alice", "text":"curiouser and couriouser"}' \
     http://localhost/
 ```
+## seventh iteration - add a bd and create a first entry
+Develop entry-store, now we can create a post entry. Add new network for the database, add .env file and environment variables.

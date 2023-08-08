@@ -163,4 +163,5 @@ cython_debug/
 .DS_Store
 
 # Custom
+database/.data/
 todo.txt
