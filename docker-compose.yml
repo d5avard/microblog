@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 services:
   load-balancer:
     build: load-balancer
@@ -39,13 +39,33 @@ services:
     restart: always
     ports:
       - "8080"
+    depends_on:
+      - database
+    environment:
+      ENTRY_STORE_MONGO_USERNAME: ${ENTRY_STORE_MONGO_USERNAME}
+      ENTRY_STORE_MONGO_PASSWORD: ${ENTRY_STORE_MONGO_PASSWORD}
     networks:
       - autharitus
+      - demonades
+  database:
+    image: mongo:5.0.19
+    restart: always
+    ports: 
+      - "27017"
+    volumes:
+      - ./database/.data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    networks:
+      - demonades
 networks:
   default:
     name: "${COMPOSE_PROJECT_NAME}_abdalonim"
   autharitus: 
     name: "${COMPOSE_PROJECT_NAME}_autharitus"
+  demonades:
+    name: "${COMPOSE_PROJECT_NAME}_demonades"
 
 # services:
 #   nginx-proxy:

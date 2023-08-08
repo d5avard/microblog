@@ -3,15 +3,15 @@ services:
   front:
     volumes:
     - .:/workspace:cached
-  
   post:
     volumes:
     - .:/workspace:cached
-
   entry-store:
     volumes:
     - .:/workspace:cached
-
+  database:
+    ports: 
+      - "27017:27017"
   netshoot:
     image: nicolaka/netshoot
     restart: always
