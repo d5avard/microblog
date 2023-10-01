@@ -164,4 +164,5 @@ cython_debug/
 
 # Custom
 database/.data/
+message-broker/
 todo.txt
