@@ -47,6 +47,14 @@ services:
     networks:
       - autharitus
       - demonades
+  message-broker:
+    image: rabbitmq:3.8-management
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ./message-broker/data/:/var/lib/rabbitmq/
+        - ./message-broker/log/:/var/log/rabbitmq
   database:
     image: mongo:5.0.19
     restart: always
