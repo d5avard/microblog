@@ -55,6 +55,8 @@ services:
     volumes:
         - ./message-broker/data/:/var/lib/rabbitmq/
         - ./message-broker/log/:/var/log/rabbitmq
+    networks:
+      - autharitus
   database:
     image: mongo:5.0.19
     restart: always

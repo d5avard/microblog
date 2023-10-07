@@ -1,6 +1,6 @@
 import motor.motor_asyncio
 from urllib.parse import quote_plus
-from app.model import Post
+from models.posts import Post
 import os
 
 user = os.environ['ENTRY_STORE_MONGO_USERNAME']

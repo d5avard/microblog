@@ -6,6 +6,10 @@ from starlette.background import BackgroundTask
 import httpx
 import socket
 
+class App(FastAPI):
+    def __init__(self, *args, **kwargs): 
+        super().__init__(*args, **kwargs)
+
 class Post(BaseModel):
     post: str
     user: str
@@ -19,7 +23,7 @@ async def lifespan(app: FastAPI):
     client = app.state.client
     await client.aclose()
 
-app = FastAPI(lifespan=lifespan)
+app = App(lifespan=lifespan)
 
 async def _proxy(request: Request):
     client = request.app.state.client

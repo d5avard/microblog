@@ -2,13 +2,13 @@ version: "3"
 services:
   front:
     volumes:
-    - .:/workspace:cached
+    - ./front/app:/workspace/front:cached
   post:
     volumes:
-    - .:/workspace:cached
+    - ./post/app:/workspace/post:cached
   entry-store:
     volumes:
-    - .:/workspace:cached
+    - ./entry-store/app:/workspace/entry-store:cached
   database:
     ports: 
       - "27017:27017"
